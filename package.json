@@ -1,0 +1,28 @@
+{
+  "name": "versatech-marketing-theme",
+  "version": "2.1.0",
+  "description": "The Second iteration of the VersaTech Marketing Theme built with SCSS, HTML5, jQuery, and PHP.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daygon2007/versatechV2.1.0.git"
+  },
+  "author": "Jonathon Harrelson & Matthew Caldwell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daygon2007/versatechV2.1.0/issues"
+  },
+  "homepage": "https://github.com/daygon2007/versatechV2.1.0#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.4.2"
+  },
+}
