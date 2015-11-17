@@ -1,14 +1,12 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: Jonathon Harrelson
+email: jonathon@jonathon-harrelson.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+  This needs to changed but this will be my SEO description
+baseurl: "http://localhost:4000/" # the subpath of your site, e.g. /blog/
+url: "http://localhost:4000/" # the base hostname & protocol for your site
+twitter_username: MrJHarrelson
+github_username:  Daygon2007
 
 # Build settings
 markdown: kramdown
@@ -24,33 +22,17 @@ navigation:
   url:
   icon: icon-you-want
   
-- root: Portfolio
-  url: portfolio/
+- root: My Story
+  url: my-story/
 
-- root: Solutions
-  url: solutions/
-  first-level:
-    - text: Web Design
-      url: solutions/web-design/
-    - text: SEO Solutions
-      url: solutions/seo/
-    - text: SEO Solutions
-      url: solutions/seo/
-    - text: Maintenance & Support
-      url: solutions/maintenance-support/
-    - text: Hosting
-      url: solutions/hosting/
-    - text: Photography
-      url: solutions/photography/
+- root: Contact Me
+  url: contact/
 
 - root: Blog
   url: blog/
   
-- root: About
-  url: about/
-  
-- root: Contact
-  url: contact/
+- root: Download My FREE E-Book
+  url: docs/guess-what.pdf
   
 # Excerpts
 excerpt_separator: <a href="{ site.url }{ post.url }">Read More @rarr;</a>

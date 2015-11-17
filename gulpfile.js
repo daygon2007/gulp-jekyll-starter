@@ -39,7 +39,7 @@ gulp.task('js', function(){
 
 // Get all files from _img folder, optimize them and send them to the img folder
 gulp.task('img', function(){
-    gulp.src('_img/*.{png,jpg,gif}')
+    gulp.src('images/**/*.{png,jpg,gif}')
         .pipe(plumber(plumberErrorHandler))
         .pipe(imagemin({
             optimizationLevel: 10,
@@ -52,13 +52,13 @@ gulp.task('img', function(){
 gulp.task('watch', function() {
     gulp.watch('_sass/*.scss', ['sass']).on('change', browserSync.reload);
     gulp.watch('_js/*.js', ['js']).on('change', browserSync.reload);
-    gulp.watch('_img/*.{png,jpg,gif}', ['img']).on('change', browserSync.reload);
+    gulp.watch('images/**/*.{png,jpg,gif}', ['img']).on('change', browserSync.reload);
 });
 
 // Have gulp run the "jekyll build" command and build the site
 gulp.task('jekyll', function (gulpCallBack){
     var spawn = require('child_process').spawn;
-    var jekyll = spawn('jekyll', ['build'], {stdio: 'inherit'});
+    var jekyll = spawn('jekyll', ['build', '--watch'], {stdio: 'inherit'});
 
     jekyll.on('exit', function(code) {
         gulpCallBack(code === 0 ? null : 'ERROR: Jekyll process exited with code: '+code);
