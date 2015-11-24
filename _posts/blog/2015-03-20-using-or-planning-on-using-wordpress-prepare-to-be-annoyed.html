@@ -1,0 +1,36 @@
+---
+layout: post
+title: Using or Planning on Using WordPress? Prepare to be Annoyed
+date: 2015-03-20 09:22:48.000000000 -05:00
+type: post
+published: true
+status: publish
+categories:
+- Blog
+tags: []
+meta:
+  _edit_last: '1'
+  _publicize_facebook_user: http://www.facebook.com/560573714
+  _publicize_twitter_user: '@daygon2007'
+  _thumbnail_id: '815'
+  _wpas_done_all: '1'
+  _wpas_skip_10709074: '1'
+  _wpas_skip_10709081: '1'
+  _wpas_skip_10709085: '1'
+  _wpas_skip_10709092: '1'
+author:
+  login: krymson
+  email: jonathon@krymsonproductions.com
+  display_name: Jonathon Harrelson
+  first_name: Jonathon
+  last_name: Harrelson
+---
+<p>Using WordPress over the last 4-6 years I've come across a number of annoyances, and I thought I would pass them along to new and existing users of this CMS platform. This isn't to say that WordPress is bad and you shouldn't use it for your website, it's just a list of annoyances that I've found as a developer that get in the way of getting a job completed in a timely manner.</p>
+<h4>Annoyance #1 - Stop adding unwanted paragraph tags in my body content!</h4>
+<p>WordPress was originally created as a blogging platform and not a content management system, so there are a number of built in "features" that make writing a blog very easy and often times very nice. As a developer, or even just an everyday person writing a post, sometimes these "features" are causes or annoying problems. One such feature in the default-filters.php file in the wp-includes folder is this little filter here, "add_filter( 'the_content', 'wpautop');". For the everyday user that just writes posts is when you're typing in the visual editor and then you save is automatically puts paragraph tags around your content. Nice right? You don't have to think about the code, just focus on the content. Then the time comes to put in an image, what you thought looked good in the visual editor now looks like a monstrosity on the front-end. You go look back at the post in the visual editor and you say to yourself, "That's not what it looked like before I hit Publish!". What WordPress does is wraps that image in a paragraph tag and throws your whole world out of balance. To combat this, you can add "remove_filter( 'the_content', 'wpautop' );" at the bottom of your functions.php file. The idea behind it is good, but sometime it will drive you to pull your hair out.</p>
+<h4>Annoyance #2 - Stop saving a zillion revisions!</h4>
+<p>You may be saying "Jonathon, that's an amazing feature, if something breaks you can always go back to an earlier revision". True as this may be, how often are you going to reimplement a revision from 2010 and 735 revisions ago. It clutters the database up and it's just annoying. Now I can see saving 5 <em><strong>MAYBE </strong></em>10 revisions, but more than that it's just a waste of resources. To combat this resource hog you can add "define( 'WP_POST_REVISIONS', # );" in your wp-config.php file where # equals the number of revisions you want to store. Now you don't have to see some outrageous number of revisions in the Publish meta-box and be annoyed about it anymore.</p>
+<h4>Annoyance #3 - Glaring Security Issues - The long one</h4>
+<p>One of the biggest issues with websites in general is security. What most people don't know is a database driven website such as WordPress, is they're very hackable. WordPress specifically is at the top of the list because it's so popular. "Well if it's so popular, they have to be working on security features all the time", you might be thinking, and this is correct. The way I look at it, hackers are always 3 steps ahead of you and them at all times. The easiest way someone can hack you is weak passwords and usernames, they perform a "brute-force" attack that has a bot trying random usernames and passwords to login to the dashboard. Many websites use admin as a username, you're the easiest to hack because hackers have half the information already, <strong>DO NOT USE "Admin" AS YOUR USERNAME... EVER!!!! </strong>Use your name, or a nickname, but never use admin.</p>
+<p>Another issue is WordPress by default puts what version of WordPress you're using so hackers can look up exploits exclusive to your version. Luckily there is a quick and easy fix for this, add "remove_action('wp_head', 'wp_generator');" to your functions.php file and it will keep the version from showing up in the source code.</p>
+<p>Using too many plugins can cause security issues as well. Poorly coded plugins are a hackers delight, especially the  plugins in the WordPress repository. But there are 2 plugins I recommend for security, Wordfence and iThemes Security. They protect against brute-force attacks and can tell you every time someone logs into your site, which can be nice or can be annoying if you have a ton of visitors logging in.</p>

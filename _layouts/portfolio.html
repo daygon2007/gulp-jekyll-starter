@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<div class="container">
+  <h2><strong>Our Showcase</strong></h2>
+  <div id="blog-breadcrumbs">
+  </div>
+  <!-- End Blog Bread Crumbs -->
+  <div class="containter" id="portfolio-grid">
+	  {% for post in site.categories.[page.category] %}
+       	<div class="portfolio-item">
+        	
+	<div class="portfolio-img"><img src="{{ site.url }}{{ post.image }}" alt="{{ post.title }}" ></div>
+    
+    <div class="portfolio-content">
+    	<h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+    </div>
+        </div>
+	  {% endfor %}
+  </div>
+  
+</div>

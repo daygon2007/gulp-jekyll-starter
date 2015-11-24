@@ -34,7 +34,7 @@ gulp.task('js', function(){
         .pipe(jshint.reporter('fail'))
         .pipe(uglify())
         .pipe(concat('main.js'))
-        .pipe(gulp.dest('_site/js'));
+        .pipe(gulp.dest('js'));
 });
 
 // Get all files from _img folder, optimize them and send them to the img folder

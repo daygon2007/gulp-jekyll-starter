@@ -1,0 +1,55 @@
+---
+layout: post
+title: Tracking Events in Marketo Embed Forms
+date: 2015-07-27 12:12:57.000000000 -05:00
+type: post
+published: true
+status: publish
+categories:
+- Blog
+tags: [Web Development, Search Engine Optimization]
+meta:
+  _edit_last: '1'
+  _wpas_done_all: '1'
+  _yoast_wpseo_metadesc: Learn how to use Google Analytics event tracking with Marketo
+    embed forms to give you better data in Google Analytics.
+  _publicize_facebook_user: http://www.facebook.com/560573714
+  _publicize_twitter_user: '@daygon2007'
+author:
+  login: Jonathon Harrelson
+  email: jonathon@jonathon-harrelson.com
+  display_name: Jonathon Harrelson
+  first_name: Jonathon
+  last_name: Harrelson
+---
+<p>Marketo is a very popular marketing automation tool. The company that I work for uses it religiously and it provides us very detailed information based upon user form submissions. Marketo is great for generating forms and being able to track form submissions through its dashboard, but what if you wanted to push that data over to Google Analytics and be able to track it there, assign a dollar amount to each SUCCESSFUL form submission? It's a little more difficult, but I'm going to clarify that today and it's actually rather simple. Throughout this article I'm working on the assumption you know how to create forms in Marketo and know how to get the JavaScript embed codes, and Google Analytics is already implemented on your site.</p>
+<h3>Starting in Marketo</h3>
+<p>Obviously starting out you're going to need to create a form in Marketo and get the embed code, which I believe this requires Forms 2.0. What you're going to get is something like this:</p>
+<p>&lt;script src="//app-ab01.marketo.com/js/forms2/js/forms2.min.js"&gt;&lt;/script&gt;<br />
+&lt;form id="mktoForm_####"&gt;&lt;/form&gt;<br />
+&lt;script&gt;MktoForms2.loadForm("//app-ab01.marketo.com", "acct_id", ####);&lt;/script&gt;</p>
+<p>Where "####" is the form number and acct_id is your unique account ID number.</p>
+<p>A great reference for the functions is <a href="http://developers.marketo.com/documentation/websites/forms-2-0/" target="_blank">Marketo's forms 2.0 documentation page</a>.</p>
+<p>Now what we're going to do is tell the script to do something only when the form is successfully submitted. If you look at the Forms 2.0 documentation, it's not very clearly labeled, but the first example (as of this posting) shows them hiding the form after successful submission. The piece we want to take a look at is</p>
+<pre><code> form.onSuccess(function(values, followUpUrl)  </code></pre>
+<p>. This pice of code tells the form to do something when it is successfully submitted. We're going to modify this to fit our needs. So you can copy the following:</p>
+<pre><code>MktoForms2.loadForm("//app-ab01.marketo.com", "acct_id", ####, function(form){
+     form.onSuccess(function(){
+          // Do Something
+     });
+});</code></pre>
+<h3>Moving To Google Analytics</h3>
+<p>Now that we have or Marketo form ready, let's get the Google information we need.</p>
+<p>When Google switched over to universal analytics they made some modifications to their tracking script which can be view on the <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events" target="_blank">documentation site</a>. I've book marked it because I easily forget things... You should to. The code is not very difficult to understand, there are some constants that you will never change, and there are variable items that will change based on what you're tracking. The constants are 'send', 'event' these will never change as this tells the script to send this event to your Google Analytics. The variables will be 'category', 'action', 'label'. You'll want to name these appropriately so you know what data you're looking at in Google Analytics. So the end result of this like of code will look like this:</p>
+<pre><code>ga('send', 'event', 'category', 'action', 'label');</code></pre>
+<h3>The Complete Code</h3>
+<p>So proof on concept will be I want to track successful form submissions on my contact form and compare it to contact form page visits and I can calculate my conversion rate. So I would label the category as 'Form Submission', my action would be 'Submit', and my label would be 'Contact Form Submission'. So using those values, we're going to add the Google analytics tracking script into the marketo form script that we set up earlier so now it's going to look like this:</p>
+<pre><code>
+MktoForms2.loadForm("//app-ab01.marketo.com", "acct_id", ####, function(form){
+     form.onSuccess(function(){
+          //Send Tracking Event
+          ga('send', 'event', 'Form Submission', 'Submit', 'Contact Form');
+     });
+});
+</code></pre>
+<p>Pretty easy huh? You can test it by submitting the form yourself and looking under the real time events in Google to make sure it works. If you have any questions please feel free to reach out to me <a href="mailto:jonathon@jonathon-harrelson.com">via email</a>.</p>

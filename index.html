@@ -2,22 +2,72 @@
 layout: default
 ---
 
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+<div id="home-sub-head" data-type="background" data-speed="3">
+<video id="videobcg" preload="auto" autoplay loop muted volume="0">
+     <source src="{{ site.url }}/images/home-bg-vid.mp4" type="video/mp4">
+          Sorry, your browser does not support HTML5 video.
+</video>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 overlay">
+        <h3 class="handwriting">I believe in one thing, hard work. If you work hard today, tomorrow's always a little easier.</h3>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- End Home Sub Head -->
+<div class="home-blocks">
+  <div class="container">
+    <div class="row">
+    <section class="col-md-3">
+    	<h4>Latest Writings</h4>
+        <ul>
+        <!-- Begin For Statement for Blog -->
+			{% for post in site.categories.blog limit:5 %}
+       <li><a href="{{ site.url}}{{ post.url }}">{{ post.title }}</a></li>
+			{% endfor %}
+       <!-- End for Statement -->
+       </ul>
+		<a href="#">View All <i class="fa fa-arrow-circle-right"></i></a>
+    </section>
+      <section class="col-md-3" id="personal-projects">
+        <h4>Latest Personal Projects</h4>
+        <ul>
+         <!-- Begin For Stement for Personal Portfolio -->
+			{% for post in site.categories.personal limit:5 %}
+          <li><a href="{{ site.url}}{{ post.url }}">{{ post.title }}</a></li>
+			{% endfor %}
+            <!-- End For Statement -->
+        </ul>
+        <a href="#">View All <i class="fa fa-arrow-circle-right"></i></a> </section>
+      <section class="col-md-3" id="professional-projects">
+        <h4>Latest Professional Projects</h4>
+        <ul>
+          <!-- Begin For Statement Professional Portfolio -->
+			{% for post in site.categories.professional limit:5 %}
+          <li><a href="{{ site.url}}{{ post.url }}">{{ post.title }}</a></li>
+			{% endfor %}
+            <!-- End For Statement -->
+        </ul>
+        <a href="#">View All <i class="fa fa-arrow-circle-right"></i></a> </section>
+      <section class="col-md-3" id="resume">
+        <h4>Download My Resume</h4>
+        <p><i class="fa fa-file-pdf-o"></i> Resume in PDF Fromat</p>
+        <p><i class="fa fa-file-word-o"></i> Resume in Secure Word Format</p>
+        <p><i class="fa fa-linkedin"></i> LinkedIn Resume</p>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- End Home Blocks -->
+<div id="about-me" data-type="background" data-speed="2">
+  <div class="row">
+    <div class="container">
+      <div class="col-md-6 overlay">
+        <h4 class="handwriting">A Little Bit About Myself</h4>
+        <p>Web Development and Search Engine Optimization is my passion. I live eat and breath everything web development. I have been developing websites since I was 14 or 2005, however you want to look at it. It's the only thing in the world I know I'm good enough at to brag about. I'm also a father of 2 little boys, and I'm with my my hischool sweetheart and mother of my children. I want to thank you for stopping by personal site and please let me know if your interested in my skill sets. I would love to come talk to your group about web development and SEO.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End About Me -->

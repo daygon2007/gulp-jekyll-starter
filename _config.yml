@@ -3,8 +3,8 @@ title: Jonathon Harrelson
 email: jonathon@jonathon-harrelson.com
 description: > # this means to ignore newlines until "baseurl:"
   This needs to changed but this will be my SEO description
-baseurl: "http://localhost:4000/" # the subpath of your site, e.g. /blog/
-url: "http://localhost:4000/" # the base hostname & protocol for your site
+baseurl: "http://localhost:4000" # the subpath of your site, e.g. /blog/
+url: "http://localhost:4000" # the base hostname & protocol for your site
 twitter_username: MrJHarrelson
 github_username:  Daygon2007
 
@@ -22,17 +22,22 @@ navigation:
   url:
   icon: icon-you-want
   
+- root: Portfolio
+  url: /portfolio/
+  
 - root: My Story
-  url: my-story/
+  url: /my-story/
 
 - root: Contact Me
-  url: contact/
+  url: /contact/
 
 - root: Blog
-  url: blog/
+  url: /blog/
   
 - root: Download My FREE E-Book
-  url: docs/guess-what.pdf
+  url: /docs/guess-what.pdf
   
 # Excerpts
 excerpt_separator: <a href="{ site.url }{ post.url }">Read More @rarr;</a>
+
+paginate: 10
