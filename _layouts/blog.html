@@ -12,7 +12,7 @@ layout: default
     <div class="col-md-8 scroll">
       {% for post in site.categories.[page.category] %}
       <div class="blog-post">
-			  {% if post.image == empty %}
+			  {% if post.image == '' or post.image == nil %}
 			  {% else %}
 			  <img src="{{ site.url }}{{ post.image }}" alt="{{ post.title }}">
 			  {% endif %}

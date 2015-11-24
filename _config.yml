@@ -12,7 +12,7 @@ github_username:  Daygon2007
 markdown: kramdown
 
 #Setting Permalinks
-permalink: none
+permalink: /:categories/:title/
 sass: 
   style: compressed
 
@@ -39,5 +39,3 @@ navigation:
   
 # Excerpts
 excerpt_separator: <a href="{ site.url }{ post.url }">Read More @rarr;</a>
-
-paginate: 10
