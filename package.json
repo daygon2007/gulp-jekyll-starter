@@ -1,21 +1,21 @@
 {
-  "name": "versatech-marketing-theme",
+  "name": "gulp-jekyll-starter",
   "version": "2.1.0",
-  "description": "The Second iteration of the VersaTech Marketing Theme built with SCSS, HTML5, jQuery, and PHP.",
+  "description": "Base starter template for building out a site with Jekyll.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daygon2007/versatechV2.1.0.git"
+    "url": "https://github.com/daygon2007/gulp-jekyll-starter.git"
   },
-  "author": "Jonathon Harrelson & Matthew Caldwell",
+  "author": "Jonathon Harrelson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/daygon2007/versatechV2.1.0/issues"
+    "url": "https://github.com/daygon2007/gulp-jekyll-starter/issues"
   },
-  "homepage": "https://github.com/daygon2007/versatechV2.1.0#readme",
+  "homepage": "https://github.com/daygon2007/gulp-jekyll-starter#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
